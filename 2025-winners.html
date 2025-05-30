@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICITET 2025 Award Winners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 30px;
+        }
+
+        .back-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .winner-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .winner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .winner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .winner-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .winner-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .winner-details h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .winner-position {
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .award-info {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .award-title {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .award-category {
+            color: var(--text-color);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .trophy-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .winners-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .winner-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="main.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Awards
+        </a>
+
+        <div class="header">
+            <i class="fas fa-trophy trophy-icon"></i>
+            <h1>ICITET 2025 Award Winners</h1>
+            <p>Excellence in AI-Driven Engineering Innovations</p>
+        </div>
+
+        <div class="winners-grid">
+            <!-- Winner 1 -->
+            <div class="winner-card">
+                <div class="winner-image">
+                    <img src="https://i.ibb.co/Ngsy3x7s/Screenshot-2025-05-20-230246.png" alt="Srinivasarao Paleti">
+                </div>
+                <div class="winner-details">
+                    <h3>Srinivasarao Paleti</h3>
+                    <p class="winner-position">Assistant Consultant, TCS</p>
+                    <div class="award-info">
+                        <p class="award-title">Excellence in AI-Driven Financial Innovations Award</p>
+                        <p class="award-category">Banking & Risk Compliance</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winner 2 -->
+            <div class="winner-card">
+                <div class="winner-image">
+                    <img src="https://i.ibb.co/spc7rjHS/Screenshot-2025-05-20-230600.png" alt="Balaji Adusupalli">
+                </div>
+                <div class="winner-details">
+                    <h3>Balaji Adusupalli</h3>
+                    <p class="winner-position">Assistant Vice President, CHUBB</p>
+                    <div class="award-info">
+                        <p class="award-title">Leadership in AI & Authentication Engineering Award</p>
+                        <p class="award-category">Cybersecurity & AI Integration</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winner 3 -->
+            <div class="winner-card">
+                <div class="winner-image">
+                    <img src="https://i.ibb.co/cc049sxR/Screenshot-2025-05-20-230721.png" alt="Anil Lokesh Gadi">
+                </div>
+                <div class="winner-details">
+                    <h3>Anil Lokesh Gadi</h3>
+                    <p class="winner-position">Manager, Cognizant</p>
+                    <div class="award-info">
+                        <p class="award-title">Innovation in Data Engineering & AI Award</p>
+                        <p class="award-category">Advanced Data Analytics</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winner 4 -->
+            <div class="winner-card">
+                <div class="winner-image">
+                    <img src="https://i.ibb.co/k6PDCtZH/Screenshot-2025-05-20-230836.png" alt="Jeevani Singireddy">
+                </div>
+                <div class="winner-details">
+                    <h3>Jeevani Singireddy</h3>
+                    <p class="winner-position">Sr. Software Engineer, Intuit</p>
+                    <div class="award-info">
+                        <p class="award-title">Excellence in AI-Powered Financial Solutions Award</p>
+                        <p class="award-category">Financial Technology</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winner 5 -->
+            <div class="winner-card">
+                <div class="winner-image">
+                    <img src="https://i.ibb.co/JwRC8PTy/Screenshot-2025-05-20-230949.png" alt="Hara Krishna Reddy Koppolu">
+                </div>
+                <div class="winner-details">
+                    <h3>Hara Krishna Reddy Koppolu</h3>
+                    <p class="winner-position">Data Engineering Lead, CSG</p>
+                    <div class="award-info">
+                        <p class="award-title">Leadership in AI-Driven Data Engineering Award</p>
+                        <p class="award-category">Intelligent Automation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
