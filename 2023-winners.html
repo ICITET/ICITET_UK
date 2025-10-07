@@ -92,6 +92,9 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .winner-card::before {
@@ -115,9 +118,9 @@
         }
 
         .winner-image img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
             object-fit: cover;
             border: 4px solid var(--primary-color);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -196,7 +199,7 @@
 
         <div class="winners-grid">
             <!-- Winner 1 -->
-            <div class="winner-card">
+            <a href="#" class="winner-card">
                 <div class="winner-image">
 
                 </div>
@@ -207,7 +210,35 @@
                         
                     </div>
                 </div>
-            </div>
+            </a>
+
+            <!-- Winner 2 -->
+            <a href="#" class="winner-card">
+                <div class="winner-image">
+                    <img src="sateesh.jpeg" alt="Sateesh Kumar Rongali">
+                </div>
+                <div class="winner-details">
+                    <h3>Sateesh Kumar Rongali</h3>
+                    <div class="award-info">
+                        <p class="award-title">Best industrial Innovation Award </p>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- Winner 3 -->
+            <a href="#" class="winner-card">
+                <div class="winner-image">
+                    <img src="ravi.jpeg" alt="Raviteja Guntupalli">
+                </div>
+                <div class="winner-details">
+                    <h3>Raviteja Guntupalli</h3>
+                    <div class="award-info">
+                        <p class="award-title">NEXT FRONTIER AI EXPLORER</p>
+                        
+                    </div>
+                </div>
+            </a>
 
             
         </div>
