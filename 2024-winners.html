@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICITET 2024</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 30px;
+        }
+
+        .back-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .feature-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .themes-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .theme-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .speakers-grid, .reviewers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .speaker-card, .reviewer-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .speaker-card:hover, .reviewer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .speaker-img {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .speaker-img img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .speaker-name, .reviewer-name {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .speaker-position, .reviewer-position {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .speaker-profile {
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .speaker-profile p {
+            margin-bottom: 10px;
+        }
+
+        .speaker-linkedin {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .speaker-linkedin:hover {
+            text-decoration: underline;
+        }
+
+        .award-section {
+            margin-bottom: 60px;
+        }
+
+        .award-category-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .winner-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .winner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .winner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .winner-image {
+            margin-bottom: 20px;
+        }
+
+        .winner-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .winner-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .award-title {
+            background: linear-gradient(135deg, var(--accent-color), #d97706);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trophy-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .award-category-title {
+                font-size: 1.5rem;
+            }
+            
+            .winners-grid, .speakers-grid, .reviewers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .winner-card, .speaker-card, .reviewer-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+
+        <div class="header">
+            <i class="fas fa-trophy trophy-icon"></i>
+            <h1>ICITET 2024</h1>
+            <p>International Conference on Innovations and Trends in Engineering Technologies</p>
+        </div>
+
+        <!-- ABOUT SECTION -->
+        <div class="section">
+            <h2 class="section-title">About ICITET 2024</h2>
+            <div class="about-content">
+                <p>The International Conference on Innovations and Trends in Engineering Technologies (ICITET) 2024 was held from 3rd to 5th June 2024 and served as a premier platform for researchers, academicians, and industry professionals to share their latest research findings and innovations in the field of engineering technologies. The conference aimed to foster collaboration, promote knowledge sharing, and showcase cutting-edge technologies across diverse engineering domains.</p>
+                
+                <h3 style="color: var(--primary-color); margin: 30px 0 20px;">Key Features</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-chalkboard-teacher"></i> Invited Lectures</h4>
+                        <p>Renowned experts sharing insights on latest technologies</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-file-alt"></i> Paper Presentations</h4>
+                        <p>Researchers showcasing their latest findings</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-users"></i> Networking Opportunities</h4>
+                        <p>Collaboration and knowledge sharing among attendees</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-book"></i> Publication Opportunities</h4>
+                        <p>Selected papers published in indexed journals</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary-color); margin: 30px 0 20px;">Themes</h3>
+                <div class="themes-list">
+                    <span class="theme-badge">AI & Machine Learning</span>
+                    <span class="theme-badge">Cybersecurity</span>
+                    <span class="theme-badge">Sustainable Tech</span>
+                    <span class="theme-badge">Industry 4.0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEYNOTE SPEAKERS SECTION -->
+        <div class="section">
+            <h2 class="section-title">Keynote Speakers</h2>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-img">
+                        <img src="https://i.ibb.co/yF804K8c/PG-Robotics-Automation.png" alt="Dr. Rath Satyasambit">
+                    </div>
+                    <h3 class="speaker-name">Dr. Rath Satyasambit</h3>
+                    <p class="speaker-position">Research Technician, RIKEN Center for Brain Science, Japan</p>
+                    <div class="speaker-profile">
+                        <p>Works with neural data from rat's brain using computational methods and dimensionality reduction techniques.</p>
+                        <p>Developed novel bRNN decoders for neural calcium signals during emotional memory tasks.</p>
+                        <p>Holds a PhD in Artificial Intelligence from Tokyo Institute of Technology and Master's in Cognitive Neuroscience from National Central University, Taiwan.</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-img">
+                        <img src="Anusha Nerella.jpeg" alt="Anusha Nerella">
+                    </div>
+                    <h3 class="speaker-name">Anusha Nerella</h3>
+                    <p class="speaker-position">Senior Software Engineer</p>
+                    <div class="speaker-profile">
+                        <p>Anusha Nerella is a forward-thinking software engineer who has delivered enterprise-grade solutions across government and global financial institutions. She began her career at the U.S. Patent and Trademark Office, contributing to large-scale modernization initiatives that improved the scalability and reliability of legacy systems.</p>
+                        <p>She later held key engineering roles at Citibank and Barclays, driving application modernization and integrating machine learning into legacy platforms as part of large-scale digital transformation efforts. Her work spanned cloud-native architectures, real-time data platforms, automation, and analytics in highly regulated environments.</p>
+                        <p>She is currently working with a major global fintech firm, focusing on institutional trading systems, advanced market data infrastructure, and intelligent automation for high-performance financial platforms.</p>
+                        <a href="https://www.linkedin.com/in/anerella" class="speaker-linkedin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+                    </div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-img">
+                        <img src="Prasad Annumula.jpeg" alt="Prasad Annumula">
+                    </div>
+                    <h3 class="speaker-name">Prasad Annumula</h3>
+                    <p class="speaker-position">Director, Risk Guard Enterprise Solutions (OPC) Private Limited</p>
+                    <div class="speaker-profile">
+                        <p>Currently works at Risk Guard Enterprise Solutions (OPC) Private Limited as a Director since over 1 year. Currently also works at RGESIndia as a Director since over 1 year. Previously worked at Claro Software Solutions Pvt Ltd, Angel Broking and 3 others. Expert in cybersecurity and information technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SESSION CHAIR / PANEL EXPERTS SECTION -->
+        <div class="section">
+            <h2 class="section-title">Session Chair / Panel Experts</h2>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-img">
+                        <img src="https://i.ibb.co/yF804K8c/PG-Robotics-Automation.png" alt="Dr. Rath Satyasambit">
+                    </div>
+                    <h3 class="speaker-name">Dr. Rath Satyasambit</h3>
+                    <p class="speaker-position">Research Technician, RIKEN Center for Brain Science, Japan</p>
+                    <div class="speaker-profile">
+                        <p>Works with neural data from rat's brain using computational methods and dimensionality reduction techniques.</p>
+                        <p>Developed novel bRNN decoders for neural calcium signals during emotional memory tasks.</p>
+                        <p>Holds a PhD in Artificial Intelligence from Tokyo Institute of Technology and Master's in Cognitive Neuroscience from National Central University, Taiwan.</p>
+                    </div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-img">
+                        <img src="Anusha Nerella.jpeg" alt="Anusha Nerella">
+                    </div>
+                    <h3 class="speaker-name">Anusha Nerella</h3>
+                    <p class="speaker-position">Senior Software Engineer</p>
+                    <div class="speaker-profile">
+                        <p>Anusha Nerella is a forward-thinking software engineer who has delivered enterprise-grade solutions across government and global financial institutions. She began her career at the U.S. Patent and Trademark Office, contributing to large-scale modernization initiatives that improved the scalability and reliability of legacy systems.</p>
+                        <p>She later held key engineering roles at Citibank and Barclays, driving application modernization and integrating machine learning into legacy platforms as part of large-scale digital transformation efforts. Her work spanned cloud-native architectures, real-time data platforms, automation, and analytics in highly regulated environments.</p>
+                        <p>She is currently working with a major global fintech firm, focusing on institutional trading systems, advanced market data infrastructure, and intelligent automation for high-performance financial platforms.</p>
+                        <a href="https://www.linkedin.com/in/anerella" class="speaker-linkedin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVIEWERS COMMITTEE SECTION -->
+        <div class="section">
+            <h2 class="section-title">Review Committee Members</h2>
+            <div class="reviewers-grid">
+                <div class="reviewer-card">
+                    <h3 class="reviewer-name">Dr. Rath Satyasambit</h3>
+                    <p class="reviewer-position">Research Technician, RIKEN Center for Brain Science, Japan</p>
+                </div>
+                <div class="reviewer-card">
+                    <h3 class="reviewer-name">Anusha Nerella</h3>
+                    <p class="reviewer-position">Senior Software Engineer</p>
+                </div>
+                <div class="reviewer-card">
+                    <h3 class="reviewer-name">Dr. Meena Kannan</h3>
+                    <p class="reviewer-position">Associate Professor, KCT, TN</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AWARDS SECTION -->
+        <div class="section">
+            <h2 class="section-title">Awardees</h2>
+
+            <!-- BEST RESEARCH AWARD 2024 -->
+            <div class="award-section">
+                <h3 class="award-category-title">Best Research Award</h3>
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Purna Chandra Rao Chinta</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Chethan Sriharsha Moore</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Manikanth Sakuru</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Kishankumar Routhu</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>VARUN BODEPUDI</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Gagan Kumar Patra</h3>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OUTSTANDING SCIENTIFIC CONTRIBUTION AWARD 2024 -->
+            <div class="award-section">
+                <h3 class="award-category-title">Outstanding Scientific Contribution Award</h3>
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Navya Vattikonda</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Anuj Kumar Gupta</h3>
+                      
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Achuthananda Reddy Polu</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Bhumeka Narra</h3>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Dheeraj Varuri Kumar Reddy Buddula</h3>
+                      
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Hari Hara Sudheer Patchipulusu</h3>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OUTSTANDING RESEARCH AWARD 2024 -->
+            <div class="award-section">
+                <h3 class="award-category-title">Outstanding Research Award</h3>
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Srinivas Rao Maka</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                     
+                        </div>
+                        <div class="winner-details">
+                            <h3>Suneel Babu Boppana</h3>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Gangadhar Sadaram</h3>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Laxmana Murthy Karaka</h3>
+                      
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                      
+                        </div>
+                        <div class="winner-details">
+                            <h3>Vasu Velaga</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-image">
+                       
+                        </div>
+                        <div class="winner-details">
+                            <h3>Krishna Madhav Jha</h3>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEST RESEARCH PAPER AWARD 2024 -->
+            <div class="award-section">
+                <h3 class="award-category-title">Best Research Paper Award</h3>
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Mukund Sai Vikram</h3>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Venkataswamy Naidu Gangineni</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Sriram Pabbineedi</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Mitra Penmetsa</h3>
+                      
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Jayakeshav Reddy</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Rajiv Chalasani</h3>
+                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOVEL RESEARCH AWARD 2024 -->
+            <div class="award-section">
+                <h3 class="award-category-title">Novel Research Award</h3>
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Srikanth Reddy Vangala</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Ram Mohan Polam</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Bhavana Kamarthapu</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Ajay Babu Kakani</h3>
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Sri Krishna Kireeti Nandiraju</h3>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="winner-card">
+                        <div class="winner-details">
+                            <h3>Manikanth Sarisa</h3>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
